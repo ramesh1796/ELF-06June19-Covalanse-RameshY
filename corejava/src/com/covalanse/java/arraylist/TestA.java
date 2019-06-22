@@ -1,8 +1,10 @@
 package com.covalanse.java.arraylist;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
+
+import lombok.extern.java.Log;
+@Log
 public class TestA {
 	public static void main(String[] args) {
 		ArrayList<Student> al=new ArrayList<Student>();
@@ -25,16 +27,16 @@ public class TestA {
 		al.add(s3);
 		for(int i=0;i<al.size();i++) {
 			Student s=al.get(i);
-			System.out.println("name is "+s.name);
-			System.out.println("Id is "+s.id);
-			System.out.println("percentage "+s.percentage);
+			log.info("name is "+s.name);
+			log.info("Id is "+s.id);
+			log.info("percentage "+s.percentage);
 		}
 		for(Student s:al) {
-			System.out.println("name is "+s.name);
-			System.out.println("Id is "+s.id);
-			System.out.println("percentage "+s.percentage);
+			log.info("name is "+s.name);
+			log.info("Id is "+s.id);
+			log.info("percentage "+s.percentage);
 		}
-		Iterator<Student> iterator=al.iterator();
+		
 	}
 
 }

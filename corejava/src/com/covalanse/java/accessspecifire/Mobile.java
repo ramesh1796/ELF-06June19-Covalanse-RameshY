@@ -1,8 +1,11 @@
 package com.covalanse.java.accessspecifire;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Mobile {
 	void call()
 	{
-		System.out.println("Call Method");
+		log.info("Call Method");
 	}
 }

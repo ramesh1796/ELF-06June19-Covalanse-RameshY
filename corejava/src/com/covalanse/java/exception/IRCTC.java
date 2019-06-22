@@ -1,14 +1,17 @@
 package com.covalanse.java.exception;
 
+import lombok.extern.java.Log;
+
+@Log
 public class IRCTC {
 	void Book() {
 		try{
-		System.out.println("booking ticket");
-		System.out.println(5/0);
-		System.out.println("Booked");
+		log.info("booking ticket");
+		log.info(""+5/0);
+		log.info("Booked");
 	}
 		catch(ArithmeticException a ) {
-			System.out.println(" book method exception caught");
+			log.info(" book method exception caught");
 			
 		}
 		

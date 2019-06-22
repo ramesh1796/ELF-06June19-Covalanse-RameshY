@@ -1,12 +1,15 @@
 package com.covalanse.java;
 
+import lombok.extern.java.Log;
+
+@Log
 public class LargestV {
 public static void main(String[] args) {
 	int a=20, b=80;
 	if(a>b) {
-		System.out.println("a is larger than b");
+		log.info("a is larger than b");
 	}
 	else
-		System.out.println("b is larger");
+		log.info("b is larger");
 }
 }

@@ -1,10 +1,13 @@
 package com.covalanse.java.exception;
 
+import lombok.extern.java.Log;
+
+@Log
 public class PayTm {
 	void pay() {
-		System.out.println("payment is in process");
-		System.out.println(6/0);
-		System.out.println("payment success");
+		log.info("payment is in process");
+		log.info(""+6/0);
+		log.info("payment success");
 		
 	}
 

@@ -1,6 +1,5 @@
 package com.covalanse.java.typecast;
 
-import TypeCast.Writer;
 
 public class TestA {
 	public static void main(String[] args) {

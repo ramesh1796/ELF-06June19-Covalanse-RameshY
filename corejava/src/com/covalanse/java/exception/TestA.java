@@ -1,20 +1,23 @@
 package com.covalanse.java.exception;
 
+import lombok.extern.java.Log;
+
+@Log
 public class TestA {
 	public static void main(String[] args) {
 		
 		String s=null;
 	try {
-		System.out.println(20/0);
-		System.out.println(s.length());
+		log.info(""+20/0);
+		log.info(""+s.length());
 		
 	}
 	catch(ArithmeticException a) {
-		System.out.println("ArithmeticException caught");
+		log.info("ArithmeticException caught");
 		
 	}
 	catch(NullPointerException n) {
-		System.out.println("Null pointer Exception caught");
+		log.info("Null pointer Exception caught");
 		
 	}
 	}

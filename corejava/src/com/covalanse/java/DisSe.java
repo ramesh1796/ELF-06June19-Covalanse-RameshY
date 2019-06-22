@@ -1,5 +1,8 @@
 package com.covalanse.java;
 
+import lombok.extern.java.Log;
+
+@Log
 public class DisSe {
 	
 public static void main(String[] args) {
@@ -9,7 +12,7 @@ public static void main(String[] args) {
 	if(age>=60)
 	{
 	 double result=amount-amount*dis/100;
-	 System.out.println("Please pay this amount  "+result);
+	 log.info("Please pay this amount  "+result);
 	}
 }
 }

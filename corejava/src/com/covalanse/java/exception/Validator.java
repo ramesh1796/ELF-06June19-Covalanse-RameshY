@@ -1,15 +1,18 @@
 package com.covalanse.java.exception;
 
+import lombok.extern.java.Log;
+
+@Log
 public class Validator {
 	int age;
 	void check( int age) {
 		if(age>18) {
-			System.out.println("allow");
+			log.info("allow");
 		}
 		else
 		{
 			throw new UnderAgeException("Sorry you are too young to enter the pub");
-			//System.out.println("not allow");
+			//log.info("not allow");
 		}
 	}
 

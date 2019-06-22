@@ -1,5 +1,8 @@
 package com.covalanse.java;
 
+import lombok.extern.java.Log;
+
+@Log
 public class ResultGrade {
 
 	public static double percentage(int a, int b) {
@@ -9,7 +12,7 @@ public class ResultGrade {
 	public static void main(String[] args) {
 		int value1=560, value2 =600;
 		double y=percentage(value1, value2);
-         System.out.println(y);		
+         log.info(""+y);		
 	}
 }
 

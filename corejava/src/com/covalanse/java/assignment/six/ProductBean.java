@@ -2,8 +2,6 @@ package com.covalanse.java.assignment.six;
 
 import java.io.Serializable;
 
-import com.covalanse.java.treeset.Product;
-
 public class ProductBean implements Serializable{
 private int pid;
 private String name ;

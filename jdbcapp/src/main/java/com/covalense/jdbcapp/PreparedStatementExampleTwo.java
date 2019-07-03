@@ -11,7 +11,7 @@ import java.sql.Statement;
 import com.mysql.jdbc.Driver;
 import lombok.extern.java.Log;
 @Log
-public class PreparedStatementExampleFour {
+public class PreparedStatementExampleTwo {
 	public static void main(String[] args) {
 		//.Load the driver
 		

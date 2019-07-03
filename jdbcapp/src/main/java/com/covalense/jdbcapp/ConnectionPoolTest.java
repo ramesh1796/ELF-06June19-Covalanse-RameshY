@@ -2,46 +2,34 @@ package com.covalense.jdbcapp;
 
 import java.sql.Connection;
 //import java.sql.Driver;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.jdbc.Driver;
+import com.covalense.jdbc.connectionpool.ConnectionPoolTwo;
 
 import lombok.extern.java.Log;
 
 @Log
-public class MyFirstJDBCProgram {
+public class ConnectionPoolTest {
 	public static void main(String[] args) {
 		// .Load the driver
 
-		Connection con = null;
+		ConnectionPoolTwo pool = null;
+		Connection con=null;
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			/*
-			 * java.sql.Driver driver = new com.mysql.jdbc.Driver();
-			 * DriverManager.registerDriver(driver);
-			 */
-
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			// 2. get the db connection via driver
-			// String
-			// dbUrl="jdbc:mysql://localhost:3306/covalense_db?user=root&password=root";
-			// con = DriverManager.getConnection(dbUrl);
-
-			String dbUrl = "jdbc:mysql://localhost:3306/covalense_db";
-			con = DriverManager.getConnection(dbUrl, "root", "root");
-			log.info("Connection impl class ====" + con.getClass());
+			
+			 pool = ConnectionPoolTwo.getConnectionPool();
+			 con= pool.getConnectionFromPool();
 			// 3. Issue "Sql queries via connection
 			String qry = "select * from employee_info";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(qry);
 			// 4. Process the result returned by sql queries
 			if (rs.next()) {
-				//log.info(" ID                ==>  " + rs.getInt("ID"));
-				//log.info(" NAME              ==>  " + rs.getString("NAME"));
+				// log.info(" ID ==> " + rs.getInt("ID"));
+				// log.info(" NAME ==> " + rs.getString("NAME"));
 				log.info(" ID                ==>  " + rs.getInt(1));
 				log.info(" NAME              ==>  " + rs.getString(2));
 				log.info(" AGE               ==>  " + rs.getInt("AGE"));
@@ -59,19 +47,24 @@ public class MyFirstJDBCProgram {
 			}
 		}
 
-		catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			log.info("" + e);
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 
-		/*
-		 * finally { // 5. Close all "JDBC objects" try { if (con != null) {
-		 * con.close(); } if (stmt != null) { stmt.close(); } if (rs != null) {
-	 	 * rs.close(); }
-		 * 
-		 * } catch (Exception e2) {
-		 * 
-		 * } }
-		 */
+		finally {
+			try {
+				pool.returnConnectionToPool(con);
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (rs != null) {
+					rs.close();
+				}
+
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 
 	}
 }

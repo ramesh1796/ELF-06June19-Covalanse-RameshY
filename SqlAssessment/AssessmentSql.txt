@@ -1,0 +1,91 @@
+1.Write a query to display Employee name, his salary along with the designation for all the employee.
+Answer:- select name , salary , designation from employee_info;
+
+2.Write a query to obtain name and his current salary and new salary with a hike 25 % for all the Employee.
+Answer:- select name , salary current_salary, (salary+salary*25/100) incremented_salary from employee_info;
+
+3.Write a query to display all the details of the Employee who are working as salesman.
+Answer:-select * from employee_info where department='salesman';
+
+4.Write a query to display all the employees of Dept.no 20.
+Answer:- select * from employee_info where department_no=20;
+
+
+5.Write a query to display all the Employees DOB before 1994.
+Answer:- select * from employee_info where dob> '1994';
+
+6.Write a query to display all the employees whose annual salary is less than 30,000.
+Answer:- select * from employee_info where salary*12<30000;
+
+7.Write a query to display name, salary and Annual salary of all the clerks.
+Answer:- select name, salary, salary*12 annual_salary from employee_info where department= 'clerks';
+
+8.Write a query to display all the details of Employee Whoever Hired after Feb of 2013.
+Answer:- select * from employee_info where joning_data > '2013';
+
+9.Write a query to display managers working in deptno 20 only if salary is greater than 2500.
+Answer:-select * from employee_info where manager_id = 20 and salary >2500;
+
+10.Write a query to display all the employee excluding Analyst.
+Answer:-select * from employee_info where department !='analyst';
+
+11.Write a query to display all the employees excluding salesman who are working in department 30.
+Answer:- select * from employee_info where department !='salesman' and department_id != 30;
+
+12.Write a query to display names of all the employee who are working in dept 30 as manager OR all the names of employee who are working as a clerk and salary less than 2000.
+Answer:- select name from employee_info where department !='clerk' or department_id = 30 and salary < 2000;
+
+13.Write a query to display all the Employees in dept 20 only if their salary is greater than 1000 and less than 3500, including 1000 & 3500.
+Answer:-select * from employee_info where department_id = 20 and salary between(1000 and 3500);
+
+14.Write a query to display all the details of Employees who are working as clerk in deptno 20,30 or 40.
+Answer:- select * from employee_info where department = 'clerk' and department_id in(20, 30, 40);
+
+15.Write a query to display the details of software developer, manager or clerk who are working in dept.  10 or 20 and salary is greater than 1500.
+Answer:-select * from employee_info where department in ('software developer', 'manager', 'clerk') and department_id in(20,  10) and salary > 1500;
+
+16. Write a query to display all the details of Employees who are working in department 10,20 excluding all the Salesman and Analyst.
+Answer:- select * from employee_info where department_id in(10,  20) and  department not in ('salesman', 'analyst');
+
+17. Write a query to display name, Salary for all the Employees who are working in dept 10 or 20 and their annual salary between 20,000 and 40,000 including the limits.
+Answer:-  select name, salary from employee_info where department_id in(10,  20) and salary*12 annual_salary between(20000, 40000);
+
+18.Write a query to display all the details of employees who were hire in the month of September working in dept 20 or 30.
+Answer:- select * from employee_info where department_id in(10,  30) and  joining_month='September';
+
+
+19.Write a query to display their name and DOJ of employee who works as salesman or clerk and their names has at least one S or E.
+Answer:- select name,DOB from employee_info where department in('clerk', 'salesman') and name like= '%S%E%';
+
+20.Write a query to display Average salary and Highest salary of dept. 20.
+Answer:- select avg(salary) , max(salary) from employee_info where department_id =20;
+
+21.Write a query to display date of first and last Hired Employees.
+Answer:- select min(joining_date) and max(joining_date) from employee_info ;
+
+22.Write a query to display AVG Salary of Employees by excluding president and manager(job).
+Answer:- select avg(salary)  from employee_info where department not in('president', 'manager');
+
+23.Write a query to display the total salary and average salary of each department
+Answer:- select sum(salary) and avg(salary) from employee_info group by department;
+
+24.Write a query to find the highest and least salary of an Employee in each job by excluding the employees whose name has ‘R’ as the last but one character.
+Answer:- select min(joining_date) and max(joining_date) from employee_info(select * from employee_info where name not (like='%_R')) ;
+
+26. Write a query to list the employee whose designation are same as Vikas  or Rahul.
+Answer:- select designation from employee_info(select * from employee_info where name ='rahul' || name ='vikas' ) ;
+
+27. Write a query to List the employee whose salary is equal to the average of max and minimum.
+Answer:select * from employee_info where salary= (select max(salary) and min(salary) from employee_info)/2;
+
+28. Write a query to display employee name, department name and the location of all employee.
+29. Write a query to display all the details of employee whose name begins with the consonants.
+30. Create a Views from Employee_Info table .Views should have all  the record whose salary is greater than 10000.
+31.  Create a trigger which will work before deletion in employee_info table     and create a duplicate copy of the record in another table employee_backup
+32.What is Driver Class?
+Answer:-Driver help to jdbc to communicate with RDBMS, there are multiple database are availavle in  market so the the particular driver is design by the
+ perticular DB vendor. In short it is external commponent and it is availavle in a form of jar file it contains lots of packages and other resources.
+33.What is DB URL?
+Answer:- DB URL stands for the Database Universal Resource Locator 
+   it's commponents are as follows:-
+  Protocol:Subprotocol:Subname

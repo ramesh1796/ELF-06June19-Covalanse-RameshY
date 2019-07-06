@@ -3,7 +3,6 @@ package com.covalense.designpatterns.dao;
 import java.sql.Connection;
 //import java.sql.Driver;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 	public EmployeeInfoBean getEmployeeInfo(int id) {
 
 		Connection con = null;
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 		ResultSet rs = null;
 		String query = null;
 		try {
@@ -36,19 +35,14 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			// 2. get the db connection via driver
-			// String
-			// dbUrl="jdbc:mysql://localhost:3306/covalense_db?user=root&password=root";
-			// con = DriverManager.getConnection(dbUrl);
-
 			String dbUrl = "jdbc:mysql://localhost:3306/covalense_db";
 			con = DriverManager.getConnection(dbUrl, "root", "root");
 			log.info("Connection impl class ====" + con.getClass());
 			// 3. Issue "Sql queries via connection
-			query = "select * from employee_info" + " where id=?";
-			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, id);
+			query = "select * from employee_info" ;
+			stmt = con.createStatement();
 
-			rs = pstmt.executeQuery();
+			rs = stmt.executeQuery(query);
 			/*
 			 * int i= pstmt.executeUpdate( query); if(i>0) { log.info("record inserted"); }
 			 * else { log.info("Not inserted"); }
@@ -71,11 +65,13 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				bean.setManagerId(rs.getInt("MANAGER_ID"));
 
 			}
+			return bean;
 
 		}
 
 		catch (Exception e) {
 			log.info("" + e);
+			return null;
 		}
 
 		finally {
@@ -84,8 +80,8 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				if (con != null) {
 					con.close();
 				}
-				if (pstmt != null) {
-					pstmt.close();
+				if (stmt != null) {
+					stmt.close();
 				}
 				if (rs != null) {
 					rs.close();
@@ -93,9 +89,10 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 
 			} catch (Exception e2) {
 				log.info("" + e2);
+				
 			}
 		}
-		return null;
+		
 
 	}// end of getEmployeeInfo id
 
@@ -142,5 +139,29 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		} // end of try-catch
 
 	}// end of main
+
+	@Override
+	public boolean createEmployeeInfo(EmployeeInfoBean bean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateEmployeeInfo(EmployeeInfoBean bean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteEmployeeInfo(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteEmployeeInfo(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }// end of class

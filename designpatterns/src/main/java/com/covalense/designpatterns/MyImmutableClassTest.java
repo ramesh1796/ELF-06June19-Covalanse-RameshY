@@ -1,5 +1,7 @@
 package com.covalense.designpatterns;
 
+import com.covalense.designpatterns.builder.MyImmutableClass;
+
 import lombok.extern.java.Log;
 
 @Log

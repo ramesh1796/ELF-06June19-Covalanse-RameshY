@@ -4,12 +4,14 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.covalense.designpatterns.beans.EmployeeInfoBean;
 import com.covalense.designpatterns.util.HibernateUtil;
@@ -17,9 +19,16 @@ import com.covalense.designpatterns.util.HibernateUtil;
 public class EmployeeDAOHibernateImpl2 implements EmployeeDAO {
 
 	@Override
-	public ArrayList<EmployeeInfoBean> getAllEmployeeInfo() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<EmployeeInfoBean> getAllEmployeeInfo() {
+		
+		Session session = HibernateUtil.openSeesion();
+		
+		String hql = "from EmployeeInfoBean";
+		Query query = session.createQuery(hql);
+		List<EmployeeInfoBean> empl = query.list();
+		session.close();
+		return empl;
+		
 	}
 
 	@Override

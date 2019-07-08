@@ -19,7 +19,7 @@ public static void main(String[] args) {
 	SessionFactory factory=cfg.buildSessionFactory();
 	Session session = factory.openSession();
 	EmployeeInfoBean empInf =new EmployeeInfoBean();
-	empInf.setId(13);
+	empInf.setId(20);
 	empInf.setName("Riksha");
 	empInf.setAge(24);
 	empInf.setGender("Female");
@@ -30,8 +30,8 @@ public static void main(String[] args) {
 	empInf.setEmail("nllest@gmail.com");
 	empInf.setDesigtnation("JEE");
 	empInf.setDob(new Date(1950-06-06));
-	empInf.setDeptId(17);
-	empInf.setMangerId(1313);
+	empInf.setDeptId(23);
+	empInf.setMangerId(1310);
 	
 	Transaction transaction= session.beginTransaction();
 	//session.save(empInf);

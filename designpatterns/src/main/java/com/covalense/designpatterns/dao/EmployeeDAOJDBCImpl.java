@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.covalense.designpatterns.beans.EmployeeInfoBean;
 
@@ -96,7 +97,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 
 	}// end of getEmployeeInfo id
 
-	public ArrayList<EmployeeInfoBean> getAllEmployeeInfo() {
+	public List<EmployeeInfoBean> getAllEmployeeInfo() {
 		// .Load the driver
 		String qry = "select * from employee_info";
 		String dbUrl = "jdbc:mysql://localhost:3306/covalense_db";
@@ -109,7 +110,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 			// 3. Issue "Sql queries via connection
 
 			// 4. Process the result returned by sql queries
-			ArrayList<EmployeeInfoBean> beans = new ArrayList<EmployeeInfoBean>();
+			List<EmployeeInfoBean> beans = new ArrayList<EmployeeInfoBean>();
 			while (rs.next()) {
 				EmployeeInfoBean bean = new EmployeeInfoBean();
 				bean.setId(rs.getInt("ID"));

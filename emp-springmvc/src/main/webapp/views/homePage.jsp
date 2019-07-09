@@ -25,9 +25,12 @@
           <!--  <input hidden type="text" name="url" value="search">-->
           <button class="btn btn-success" type="submit">Search</button>
           <label class="float-right" style="block-size: 30px; border: 2 solid green; text-decoration: greenyellow;"><a href="./logout" >Logout</a></label>
+          
         </form>
       </nav>
     
+    <br>
+          <label class="float-right" style="block-size: 30px; border: 2 solid green; text-decoration: greenyellow;"><a href="./update" >Update Form</a></label>
       <div class="col-md-4 offset-4">
       <form action="./search" role="form" style="background-color:rgb(64, 186, 207)" >
          <a href=""><img alt="" src="abc.png"  style="height: 50%; width: 50%;"></a>

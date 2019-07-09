@@ -6,6 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 @SuppressWarnings("serial")
@@ -23,10 +28,12 @@ public class EmployeeEducationalInfoBean implements Serializable {
 	private String collegeName;
 	@Column(name = "university")
 	private String university;
-	@Column(name = "loaction")
-	private String loaction;
+	@Column(name = "location")
+	private String location;
 	@Column(name = "percentage")
 	private double percentage;
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+//	@Temporal(TemporalType.DATE)
 	@Column(name = "yop")
 	private Date yop;
 

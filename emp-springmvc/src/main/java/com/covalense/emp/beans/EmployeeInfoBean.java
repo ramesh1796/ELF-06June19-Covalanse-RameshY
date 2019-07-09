@@ -14,6 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 @SuppressWarnings("serial")
@@ -21,19 +27,24 @@ import lombok.Data;
 @Entity
 @Table(name="employee_info")
 public class EmployeeInfoBean implements Serializable {
-	
+
+@LazyCollection(LazyCollectionOption.FALSE)	
 @OneToOne(cascade = CascadeType.ALL, mappedBy ="infoBean")	
 private EmployeeOtherInfoBean employeeOtherInfoBean;
 
+@LazyCollection(LazyCollectionOption.FALSE)	
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "addressPKBean.infoBean")
 private List<EmployeeAddressInfoBean> addressInfoBeans;
 
+@LazyCollection(LazyCollectionOption.FALSE)	
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "experienceInfoPKBean.infoBean")
 private List<EmployeeExperienceInfoBean> experienceInfoBeans;
 
+@LazyCollection(LazyCollectionOption.FALSE)	
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "educationalInfoPKBean.infoBean")
 private List<EmployeeEducationalInfoBean> employeeEducationalInfoBeans;
 
+@LazyCollection(LazyCollectionOption.FALSE)	
 @ManyToMany(cascade = CascadeType.ALL, mappedBy = "infoBeans")
 private List<TrainingInfoBean> trainingInfoBeans;
 
@@ -50,6 +61,8 @@ private List<TrainingInfoBean> trainingInfoBeans;
  private double salary;
  @Column(name="phone")
  private  long phone;
+// @DateTimeFormat(pattern = "yyyy-MM-dd")
+// @Temporal(TemporalType.DATE)
  @Column(name="joining_date")
  private  Date joiningDate;
  @Column(name="account_no")
@@ -58,6 +71,8 @@ private List<TrainingInfoBean> trainingInfoBeans;
  private String email;
  @Column(name="designation")
  private String designation;
+// @DateTimeFormat(pattern = "yyyy-MM-dd")
+// @Temporal(TemporalType.DATE)
  @Column(name="dob")
  private Date dob;
  

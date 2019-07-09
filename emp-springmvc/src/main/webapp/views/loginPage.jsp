@@ -43,6 +43,7 @@
 				style="background-color: rgb(64, 186, 207)" method="post">
 				
 				<legend style="text-align: center; font-size: 80px">Login</legend>
+				
 				<div class="form-group">
 					<label for="">Email</label> <input type="text" class="form-control"
 						name="id" id="email">
@@ -65,7 +66,7 @@
 			</form>
 			${logoutSuccess}
 			${loginError} 
-			
+			${registraionSuccess}
 			<%--  <%= request.getParameter("msg") %> --%>
 		</div>
 	</div>

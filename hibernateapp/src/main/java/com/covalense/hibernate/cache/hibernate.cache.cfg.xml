@@ -14,8 +14,8 @@
         <property name="hibernate.cache.use_second_level_cache">true</property>
        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
         
-        <mapping class="com.covalense.hibernateapp.dto.EmployeeNewInfo" />
-        <mapping class="com.covalense.hibernateapp.dto.EmployeeInfoBean" />
+        <!-- <mapping class="com.covalense.hibernateapp.dto.EmployeeNewInfo" />
+        <mapping class="com.covalense.hibernateapp.dto.EmployeeInfoBean" /> -->
        <!--  <mapping class="com.covalense.hibernateapp.dto.EmployeeOtherInfoBean" /> -->
     </session-factory>
 </hibernate-configuration>

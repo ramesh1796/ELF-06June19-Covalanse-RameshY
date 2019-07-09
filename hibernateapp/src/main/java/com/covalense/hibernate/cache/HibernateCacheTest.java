@@ -14,18 +14,16 @@ public static void main(String[] args) {
 }//end main
 
 private static  NewEmployeeInfoBean getEmployeeData(int id) {
-	//1. Load the config file
-		Configuration config = new Configuration();
-		config.configure("com/covalense/hibernate/cache/hibernate.cache.cfg.xml");
-		config.addAnnotatedClass(NewEmployeeInfoBean.class);
-		//2. Build session factory
-		SessionFactory factory = config.buildSessionFactory();
-		//3. open session
-		Session session = factory.openSession();
+	
+		//Session session = HibernateCacheUtil.openSession();
 		//4. 
-		NewEmployeeInfoBean bean = session.get(NewEmployeeInfoBean.class, 11);
+		//NewEmployeeInfoBean bean = session.get(NewEmployeeInfoBean.class, 11);
 		//5.
-		session.close();
+	  NewEmployeeInfoBean bean=null;
+	  try(Session session = HibernateCacheUtil.openSession();){
+		  bean = session.get(NewEmployeeInfoBean.class, id);
+	  }
+		//session.close();
 	
 	return bean;
 }//end getEmployeeData

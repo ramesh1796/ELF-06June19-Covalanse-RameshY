@@ -13,7 +13,7 @@ public static void main(String[] args) {
 	configuration.configure("hibernate.cfg.xml");
 	SessionFactory sessionFactory= configuration.buildSessionFactory();
 	Session session= sessionFactory.openSession();
-	EmployeeInfoBean employeeInfoBean= session.get(EmployeeInfoBean.class, 13);
+	EmployeeInfoBean employeeInfoBean = session.get(EmployeeInfoBean.class, 13);
 	employeeInfoBean.setAge(45);
 	employeeInfoBean.setName("Sonal");
 	Transaction transaction= session.beginTransaction();

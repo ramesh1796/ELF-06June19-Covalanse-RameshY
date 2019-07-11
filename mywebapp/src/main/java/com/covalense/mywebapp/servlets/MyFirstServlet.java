@@ -10,9 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class MyFirstServlet extends HttpServlet {
+	public MyFirstServlet() {
+		System.out.println("myFirstServlet");
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 	throws ServletException, IOException {
+	 String httpMethod = req.getMethod();
+	 String protocol = req.getProtocol();
+	 String requestURL = req.getRequestURI().toString();
+	 System.out.println(" httpMethod"+ httpMethod);
+	 System.out.println(" protocol"+ protocol);
+	 System.out.println(" requestURL"+ requestURL);
      String currentDateTime = new Date().toString();
      //Get Query String Information
      String fnameValue = req.getParameter("fname");
@@ -37,7 +47,7 @@ public class MyFirstServlet extends HttpServlet {
     		 "</body>"+
     		 "</html>";
      //Send the above HTML Response of Browser
-     resp.setContentType("html/text");
+     resp.setContentType("text/html");
     // resp.setHeader("Refresh", "1"); //auto refresh for every sec.
      PrintWriter out = resp.getWriter();
      out.print(htmlResponse);

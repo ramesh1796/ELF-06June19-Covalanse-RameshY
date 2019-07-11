@@ -95,8 +95,8 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
 	public boolean deleteEmployeeInfo(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return deleteEmployeeInfo(Integer.parseInt(id));
 	}
 
 }

@@ -1,0 +1,19 @@
+ul {
+    text-decoration: none;
+    text-align: right;
+    overflow: hidden;
+    color: red;
+}
+
+li {
+    display: inline-block;
+}
+
+.topnav {
+    padding: 5px;
+    background-color: rgb(3, 78, 3);
+    color: red;
+}
+input[type=text] {
+    width: 300px;
+  }

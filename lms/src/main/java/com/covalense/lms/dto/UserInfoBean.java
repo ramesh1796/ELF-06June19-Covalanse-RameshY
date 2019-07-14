@@ -7,30 +7,27 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @SuppressWarnings("serial")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "user-id")
 @Entity
 @Table(name = "user_info")
-//@JsonRootName(value = "user_info")
+
 public class UserInfoBean implements Serializable{
 
-	//@JsonProperty(value = "user_id")
 	@Id
-	@Column(name = "user_id")
+	@Column(name = "userId")
 	private int userId;
 	
 	@JsonProperty(value = "user_name")
-	@Column(name = "user_name")
+	@Column(name = "userName")
 	private String userName;
 	
 	@JsonProperty(value = "user_type")
-	@Column(name = "user_type")
+	@Column(name = "userType")
 	private String userType;
 	
 	@JsonProperty(value = "password")
@@ -50,7 +47,7 @@ public class UserInfoBean implements Serializable{
 	private Long contact;
 	
 	@JsonProperty(value = "expiry_date")
-	@Column(name = "expiry_date")
+	@Column(name = "expiryDate")
 	private Date expiryDate;
 
 	public int getUserId() {

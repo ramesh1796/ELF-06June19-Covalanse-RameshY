@@ -1,0 +1,29 @@
+a{
+    font-size: 18px;
+    color: blue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    text-decoration-line: none;
+}
+/* .myButton{
+    display: inline;
+} */
+
+.head {
+    padding: 16px 16px;
+    background-color: aquamarine;
+    
+}
+.body{
+    background-color:rgb(97, 142, 160);
+}
+.submit {
+    display: inline;
+}
+.icon{
+    position:absolute;
+    left: 96%;
+    z-index: 2;
+    margin-bottom: 20px;
+    top: -24px !important;
+}

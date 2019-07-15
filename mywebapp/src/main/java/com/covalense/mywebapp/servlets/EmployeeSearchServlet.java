@@ -3,7 +3,10 @@ package com.covalense.mywebapp.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,12 +16,25 @@ import com.covalense.mywebapp.beans.EmployeeInfoBean;
 import com.covalense.mywebapp.dao.EmployeeDAO;
 import com.covalense.mywebapp.dao.EmployeeDAOFactory;
 
+@WebServlet(urlPatterns="/search",
+		initParams = {
+				@WebInitParam(name="actress", value="Basanti")
+		}
+		)
 
-@WebServlet("/search")
+//@WebServlet("/search/employeeSearch")
 public class EmployeeSearchServlet extends HttpServlet{
 @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 		throws ServletException, IOException {
+	
+	ServletContext ctx = getServletContext();
+	String movieName = ctx.getInitParameter("Movie");
+    ServletConfig config = getServletConfig();
+    String actorName=config.getInitParameter("Actor");
+    String actressName=config.getInitParameter("actress");
+    
+    
 	String idValue = req.getParameter("id");
 	//Interact with DB & get the Employee info
 	EmployeeDAO dao = EmployeeDAOFactory.getInstance();
@@ -47,6 +63,9 @@ public class EmployeeSearchServlet extends HttpServlet{
 		out.print("<BR>Phone " + bean.getPhone());
 		out.print("<BR>salary " + bean.getSalary());
 		out.print("<BR>Age " + bean.getAge());
+		out.print("<BR>Movie Name " + movieName);
+		out.print("<BR>Actor Name " + actorName);
+		out.print("<BR>Actress Name " + actressName);
 		out.print("</BODY>");
 		out.print("</HTML>");
 	}

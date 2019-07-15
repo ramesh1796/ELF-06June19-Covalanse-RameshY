@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,14 +17,24 @@ public class MyFirstServlet extends HttpServlet {
 	}
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+	protected  void  doGet(HttpServletRequest req, HttpServletResponse resp) 
 	throws ServletException, IOException {
+		
+		ServletContext ctx = getServletContext();
+		String movieName = ctx.getInitParameter("Movie");
+        ServletConfig config = getServletConfig();
+        String actorName=config.getInitParameter("Actor");
+        String actressName=config.getInitParameter("actress");
+		
 	 String httpMethod = req.getMethod();
 	 String protocol = req.getProtocol();
 	 String requestURL = req.getRequestURI().toString();
-	 System.out.println(" httpMethod"+ httpMethod);
-	 System.out.println(" protocol"+ protocol);
-	 System.out.println(" requestURL"+ requestURL);
+	 
+	 System.out.println(" httpMethod  "+ httpMethod);
+	
+	 System.out.println(" protocol   "+ protocol);
+
+	 System.out.println(" requestURL   "+ requestURL);
      String currentDateTime = new Date().toString();
      //Get Query String Information
      String fnameValue = req.getParameter("fname");
@@ -43,6 +55,13 @@ public class MyFirstServlet extends HttpServlet {
     		 "  First Name:-"+fnameValue+
     		  "  <br>"+
     		 "  Last Name:-"+lnameValue+
+    		  "  <br>"+
+    		 "  Movie Name:-"+movieName+
+    		  "  <br>"+
+    		 "  Actor Name:-"+actorName+
+    		  "  <br>"+
+    		 "  Actress Name:-"+actressName+
+    		 
     		 "  </h1>"+
     		 "</body>"+
     		 "</html>";
@@ -52,5 +71,9 @@ public class MyFirstServlet extends HttpServlet {
      PrintWriter out = resp.getWriter();
      out.print(htmlResponse);
      
+     
+     
+     
 	}//end of doGet()
+	
 }// End of class

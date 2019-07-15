@@ -4,9 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <context-param>
+  <param-name>Movie</param-name>
+  <param-value>Sholey</param-value>
+  </context-param>
   <servlet>
   <servlet-name>myFirstServlet</servlet-name>
   <servlet-class>com.covalense.mywebapp.servlets.MyFirstServlet</servlet-class>
+   <init-param>
+  <param-name>Actor</param-name>
+  <param-value>Gabbar</param-value>
+  </init-param>
   </servlet>
   <servlet-mapping>
   <servlet-name>myFirstServlet</servlet-name>

@@ -16,7 +16,7 @@ public class EmployeeInfoTestTwo {
 		log.info("ID:="+employeeBean.getId());
 		log.info("Name:="+ employeeBean.getName());
 		log.info("DEPT ID:="+employeeBean.getDept().getDeptId());
-		log.info("DEPT    Name:="+ employeeBean.getDept().getDeptName());
+		log.info("DEPT Name:="+ employeeBean.getDept().getDeptName());
 		
 		((AbstractApplicationContext)applicationContext).close();
 		

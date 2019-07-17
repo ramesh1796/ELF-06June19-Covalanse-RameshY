@@ -1,7 +1,17 @@
 package com.covalense.springcore.beans;
-public class EmployeeInfoBean{
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Import;
+
+import com.covalense.springcore.configurations.DepartmentConfig;
+
+
+public class EmployeeBean{
 	private String name;
     private int id;
+    @Autowired
+    @Qualifier("HR")
     private DepartmentBean dept;
     
 	public DepartmentBean getDept() {

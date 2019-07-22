@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="MovieApp.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header text">
+      <a class="navbar-brand" href="#">IMDB</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+        <form>
+                <div class="search">
+                 <input id="theSearch" ng-model="searchparam" placeholder="movie name" type="text" ngTrim="true" />
+                 <button ng-click="fetch()">Search</button>
+                 <div class="clear"></div>
+                </div>
+              </form>
+          
+              <div class="results">
+          
+                <div class="result" movie-srch-results ng-repeat="movie in movieResults"></div>
+          
+              </div>
+              <div class="noResults"></div>
+          
+            </div>
+  
+</div>
+ <script src="MovieApp.js"></script>
+</body>
+</html>

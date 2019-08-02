@@ -2,22 +2,25 @@ package com.covalense.emp.dao;
 
 import java.util.Arrays;
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.covalense.emp.beans.EmployeeInfoBean;
 import com.covalense.emp.util.HibernateUtil;
-
 import lombok.extern.java.Log;
 @Log
+@Component
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
-
+	@Autowired
+	HibernateUtil hibernateUtil;
+     
 	@Override
 	public List<EmployeeInfoBean> getAllEmployeeInfo() {
 		
-		Session session = HibernateUtil.openSeesion();
+		Session session = hibernateUtil.openSeesion();
 		
 		String hql = "from EmployeeInfoBean";
 		Query query = session.createQuery(hql);
@@ -37,7 +40,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	public EmployeeInfoBean getEmployeeInfo(int id) {
 		// SessionFactory sessionFactory = HibernateUtil.buildSessionFactory();
 		// 3.Open the session
-		Session session = HibernateUtil.openSeesion();
+		Session session = hibernateUtil.openSeesion();
 		// 4. Interact with DB via session
 		EmployeeInfoBean bean = session.get(EmployeeInfoBean.class, id);
 		// 5. Close the session
@@ -48,7 +51,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	private boolean saveOrUpdate(EmployeeInfoBean bean) {
 		Transaction txn = null;
 		try {
-			Session session = HibernateUtil.openSeesion();
+			Session session = hibernateUtil.openSeesion();
 			txn = session.beginTransaction();
 			session.saveOrUpdate(bean);
 			txn.commit();
@@ -80,7 +83,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 		EmployeeInfoBean bean = new EmployeeInfoBean();
 		bean.setId(id);
 		try {
-			Session session = HibernateUtil.openSeesion();
+			Session session = hibernateUtil.openSeesion();
 			txn = session.beginTransaction();
 			session.delete(bean);
 			txn.commit();
@@ -101,7 +104,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
 	public List<EmployeeInfoBean> searchById(String id) {
-        Session session = HibernateUtil.openSeesion();
+        Session session = hibernateUtil.openSeesion();
         String hql = "from EmployeeInfoBean where id like '" +id+ "%'";
 		Query query = session.createQuery(hql);
 		List<EmployeeInfoBean> empl = query.list();

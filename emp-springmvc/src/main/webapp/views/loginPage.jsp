@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +39,9 @@
 	</nav>
 	<div class="row mt-4">
 		<div class="col-md-4 offset-4 ">
-			<form action="http://localhost/emp/loginfail" role="form"
+			<form action="./authentication" role="form"
 				style="background-color: rgb(64, 186, 207)" method="post">
-				<%=request.getAttribute("msg") %>
+				
 				<legend style="text-align: center; font-size: 80px">Login</legend>
 				<div class="form-group">
 					<label for="">Email</label> <input type="text" class="form-control"
@@ -61,10 +63,13 @@
 				</div>
 
 			</form>
+			${logoutSuccess}
+			${loginError} 
+			
 			<%--  <%= request.getParameter("msg") %> --%>
 		</div>
 	</div>
 
 	<script src="login.js"></script>
 </body>
-</html>
+</html>>

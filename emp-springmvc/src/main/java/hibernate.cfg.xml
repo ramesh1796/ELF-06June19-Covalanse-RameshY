@@ -14,7 +14,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
         <!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
-
       <!--   <mapping class="com.covalense.emp.beans.EmployeeInfoBean" /> 
        <mapping class="com.covalense.emp.beans.EmployeeOtherInfoBean" /> --> 
     </session-factory>

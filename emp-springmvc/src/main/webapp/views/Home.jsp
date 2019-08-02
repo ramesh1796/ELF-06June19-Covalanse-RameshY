@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -37,28 +37,15 @@
 	</nav>
 	<div class="row mt-4">
 		<div class="col-md-4 offset-4 ">
-			<form action="http://localhost/emp/loginfail" role="form"
+			<form action="#" role="form"
 				style="background-color: rgb(64, 186, 207)" method="post">
 				<%=request.getAttribute("msg") %>
 				<legend style="text-align: center; font-size: 80px">Login</legend>
 				<div class="form-group">
-					<label for="">Email</label> <input type="text" class="form-control"
-						name="id" id="email">
+					<label for="">Home Page</label>
+					<%=request.getAttribute("msg") %>
 				</div>
-				<div class="form-group ">
-					<label for="">Password</label> <input type="password"
-						class="form-control" name="password" id="password"> <label
-						onclick="showPassword()" for=""
-						class="icon glyphicon glyphicon-eye-open"></label>
-				</div>
-				<div>
-					<button type="submit" class="btn btn-primary" name="myButton"
-						id="myButton">Login</button>
-				</div>
-				<div class="links">
-					<a href="empinfo.html">Create Account</a> <a href="#"
-						class="float-right">Forget Password</a>
-				</div>
+				
 
 			</form>
 			<%--  <%= request.getParameter("msg") %> --%>

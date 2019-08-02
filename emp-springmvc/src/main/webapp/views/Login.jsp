@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+<%@ page session="false" %>>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -37,9 +38,10 @@
 	</nav>
 	<div class="row mt-4">
 		<div class="col-md-4 offset-4 ">
-			<form action="http://localhost/emp/loginfail" role="form"
+			<form action="./authentication" role="form"
 				style="background-color: rgb(64, 186, 207)" method="post">
-				<%=request.getAttribute("msg") %>
+				
+				
 				<legend style="text-align: center; font-size: 80px">Login</legend>
 				<div class="form-group">
 					<label for="">Email</label> <input type="text" class="form-control"
@@ -56,10 +58,10 @@
 						id="myButton">Login</button>
 				</div>
 				<div class="links">
-					<a href="empinfo.html">Create Account</a> <a href="#"
+					<a href="empinfo">Create Account</a> <a href="#"
 						class="float-right">Forget Password</a>
 				</div>
-
+                  <%=request.getAttribute("msg") %>
 			</form>
 			<%--  <%= request.getParameter("msg") %> --%>
 		</div>

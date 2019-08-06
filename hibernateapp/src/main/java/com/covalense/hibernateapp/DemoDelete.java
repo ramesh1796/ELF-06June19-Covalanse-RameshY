@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.covalense.hibernate.util.HibernateUtil;
-import com.covalense.hibernateapp.dto.EmployeeInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
 
 public class DemoDelete {
 	public static void main(String[] args) {

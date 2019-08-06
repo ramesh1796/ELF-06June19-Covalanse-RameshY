@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.covalense.hibernateapp.dto.EmployeeOtherInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeOtherInfoBean;
 
 import lombok.extern.java.Log;
 @Log
@@ -15,7 +15,7 @@ public class ReadRecordOtherInfo {
 		SessionFactory sessionFactory= configuration.buildSessionFactory();
 		Session session= sessionFactory.openSession();
 		EmployeeOtherInfoBean employeeInfoBean= session.get(EmployeeOtherInfoBean.class, 13);
-		log.info(""+employeeInfoBean.getId());
+		//log.info(""+employeeInfoBean.getId());
 		log.info(""+employeeInfoBean.getBloodGrp());
 		log.info(""+employeeInfoBean.getAdhaar());
 		log.info(""+employeeInfoBean.getEmergencyContactName());

@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
 import com.covalense.hibernate.util.HibernateUtil;
-import com.covalense.hibernateapp.dto.EmployeeInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
 
 import lombok.extern.java.Log;
 @Log

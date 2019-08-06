@@ -9,7 +9,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import com.covalense.hibernate.util.HibernateUtil;
-import com.covalense.hibernateapp.dto.EmployeeInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
 
 import lombok.extern.java.Log;
 @Log

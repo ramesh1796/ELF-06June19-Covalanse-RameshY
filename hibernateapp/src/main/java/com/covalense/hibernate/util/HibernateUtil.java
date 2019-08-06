@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.covalense.hibernateapp.onetoone.EmployeeInfoBean;
-import com.covalense.hibernateapp.onetoone.EmployeeOtherInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeOtherInfoBean;
 
 public class HibernateUtil {
 

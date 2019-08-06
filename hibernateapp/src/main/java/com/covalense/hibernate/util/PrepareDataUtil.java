@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.covalense.hibernateapp.onetoone.EmployeeInfoBean;
-import com.covalense.hibernateapp.onetoone.EmployeeOtherInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeOtherInfoBean;
 
 public class PrepareDataUtil {
 	private PrepareDataUtil() {}
@@ -25,8 +25,8 @@ public class PrepareDataUtil {
 		empBean.setDob(date);
 		empBean.setEmail("hshhd@gmail.com");
 		empBean.setPassword("yes5566");
-		empBean.setManagerId(1111);
-		empBean.setDepartmentId(90);
+		//empBean.setManagerId(1111);
+		//empBean.setDepartmentId(90);
 		EmployeeOtherInfoBean empOtherInf= new EmployeeOtherInfoBean();
 		//empOtherInf.setId(id);
 		empOtherInf.setPan("ABHD987Y");

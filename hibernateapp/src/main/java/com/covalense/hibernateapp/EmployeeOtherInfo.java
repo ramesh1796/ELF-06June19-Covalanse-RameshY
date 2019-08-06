@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.covalense.hibernateapp.dto.EmployeeOtherInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeOtherInfoBean;
 
 public class EmployeeOtherInfo {
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class EmployeeOtherInfo {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
 		EmployeeOtherInfoBean empOtherInf = new EmployeeOtherInfoBean();
-		empOtherInf.setId(8);
+		// empOtherInf.setId(8);
 		empOtherInf.setPan("ABHD987Y");
 		empOtherInf.setMarried(false);
 		empOtherInf.setBloodGrp("B+");

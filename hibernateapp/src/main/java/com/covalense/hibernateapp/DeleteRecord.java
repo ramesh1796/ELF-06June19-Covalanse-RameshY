@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.covalense.hibernateapp.dto.EmployeeInfoBean;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
 
 public class DeleteRecord {
 public static void main(String[] args) {

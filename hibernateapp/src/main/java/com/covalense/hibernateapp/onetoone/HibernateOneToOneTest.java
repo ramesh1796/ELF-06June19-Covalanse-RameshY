@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 
 import com.covalense.hibernate.util.HibernateUtil;
 import com.covalense.hibernate.util.PrepareDataUtil;
+import com.covalense.hibernateapp.beans.EmployeeInfoBean;
 
 import lombok.extern.java.Log;
 

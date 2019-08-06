@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/covalense_db</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/covalense_db?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.pool_size">1</property>
@@ -15,11 +15,12 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
        <!--  <mapping class="com.covalense.hibernateapp.dto.EmployeeNewInfo" /> -->
-       <mapping class="com.covalense.hibernateapp.manytomany.TrainingInfoBean" />
-       <mapping class="com.covalense.hibernate.manytoone.EmployeeExperienceInfoBean" />
-        <mapping class="com.covalense.hibernate.manytoone.EmployeeEducationalInfoBean" />
-         <mapping class="com.covalense.hibernate.manytoone.EmployeeAddressInfoBean" />
-        <mapping class="com.covalense.hibernateapp.onetoone.EmployeeInfoBean" />
-         <mapping class="com.covalense.hibernateapp.onetoone.EmployeeOtherInfoBean" /> 
+       <mapping class="com.covalense.hibernateapp.beans.DepartmentInfoBean" />
+       <mapping class="com.covalense.hibernateapp.beans.TrainingInfoBean" />
+       <mapping class="com.covalense.hibernateapp.beans.EmployeeExperienceInfoBean" />
+        <mapping class="com.covalense.hibernateapp.beans.EmployeeEducationalInfoBean" />
+         <mapping class="com.covalense.hibernateapp.beans.EmployeeAddressInfoBean" />
+        <mapping class="com.covalense.hibernateapp.beans.EmployeeInfoBean" />
+         <mapping class="com.covalense.hibernateapp.beans.EmployeeOtherInfoBean" /> 
     </session-factory>
 </hibernate-configuration>

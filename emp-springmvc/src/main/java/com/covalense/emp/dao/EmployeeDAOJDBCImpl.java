@@ -60,10 +60,10 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				bean.setJoiningDate(rs.getDate("JOINING_DATE"));
 				bean.setAccountNumber(rs.getLong("ACCOUNT_NO"));
 				bean.setEmail(rs.getString("EMAIL"));
-				bean.setDesigtnation(rs.getString("DESIGNATION"));
+				bean.setDesignation(rs.getString("DESIGNATION"));
 				bean.setDob(rs.getDate("DOB"));
-				bean.setDepartmentId(rs.getInt("DEPT_ID"));
-				bean.setManagerId(rs.getInt("MANAGER_ID"));
+				//bean.setDepartmentId(rs.getInt("DEPT_ID"));
+				//bean.setManagerId(rs.getInt("MANAGER_ID"));
 
 			}
 			return bean;
@@ -122,10 +122,10 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				bean.setJoiningDate(rs.getDate("JOINING_DATE"));
 				bean.setAccountNumber(rs.getLong("ACCOUNT_NO"));
 				bean.setEmail(rs.getString("EMAIL"));
-				bean.setDesigtnation(rs.getString("DESIGNATION"));
+				bean.setDesignation(rs.getString("DESIGNATION"));
 				bean.setDob(rs.getDate("DOB"));
-				bean.setDepartmentId(rs.getInt("DEPT_ID"));
-				bean.setManagerId(rs.getInt("MANAGER_ID"));
+				//bean.setDepartmentId(rs.getInt("DEPT_ID"));
+				//bean.setManagerId(rs.getInt("MANAGER_ID"));
 
 				beans.add(bean); // Adding it to arraylist
 			}

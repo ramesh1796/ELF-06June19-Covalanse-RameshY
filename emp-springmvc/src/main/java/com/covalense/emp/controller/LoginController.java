@@ -28,7 +28,26 @@ public class LoginController {
 	public String getForm() {
 		return EmpConstant.VIEW_LOGINPAGE;
 	}
-
+    
+	@GetMapping("/registraion")
+	public String getRegistrationForm() {
+		return EmpConstant.GET_REGISTRATION_PAGE;
+	}
+	@PostMapping("/registraionForm")
+	public String registrationForm(EmployeeInfoBean infoBean, ModelMap modelMap,
+			@Value("${registraionFailed}") String registraionFailed,
+			@Value("${registraionSuccess}") String registraionSuccess) {
+	      if(dao.createEmployeeInfo(infoBean)) {
+	    	  modelMap.addAttribute("registraionSuccess",registraionSuccess );
+	    	  return EmpConstant.VIEW_LOGINPAGE;
+	      }
+	      modelMap.addAttribute("registraionFailed",registraionFailed );
+		return EmpConstant.GET_REGISTRATION_PAGE;
+		
+		
+	}
+	
+	
 	@PostMapping("/authentication")
 	public String authentication(int id, String password, HttpServletRequest req,
 			@Value("${loginError}") String loginError, @Value("${loginSuccess}") String loginSuccess) {

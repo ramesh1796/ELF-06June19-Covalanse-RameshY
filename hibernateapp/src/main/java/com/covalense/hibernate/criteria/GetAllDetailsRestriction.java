@@ -28,9 +28,9 @@ public class GetAllDetailsRestriction {
 		log.info("Desigantion " + employeeInfoBean.getDesigtnation());
 		log.info("DOB " + employeeInfoBean.getDob());
 		log.info("AccountNo " + employeeInfoBean.getAccountNumber());
-		log.info("DepartmentId " + employeeInfoBean.getDeptId());
+		//log.info("DepartmentId " + employeeInfoBean.getDeptId());
 		log.info("joiningdate " + employeeInfoBean.getJoiningDate());
-		log.info("ManagerId " + employeeInfoBean.getMangerId());
+		//log.info("ManagerId " + employeeInfoBean.getMangerId());
 		log.info("Phone " + employeeInfoBean.getPhone());
 		log.info("salary" + employeeInfoBean.getSalary());
 		log.info("Age" + employeeInfoBean.getAge());

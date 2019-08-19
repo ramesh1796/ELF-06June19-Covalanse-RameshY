@@ -8,6 +8,17 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class EmployeeResponse {
 
 	private int statusCode;
+	private String message;
+	private String description; 
+	private List<EmployeeInfoBean> beans;
+	private Iterable<EmployeeInfoBean> bean;
+	
+	public Iterable<EmployeeInfoBean> getBean() {
+		return bean;
+	}
+	public void setBean(Iterable<EmployeeInfoBean> bean) {
+		this.bean = bean;
+	}
 	public int getStatusCode() {
 		return statusCode;
 	}
@@ -32,7 +43,5 @@ public class EmployeeResponse {
 	public void setBeans(List<EmployeeInfoBean> beans) {
 		this.beans = beans;
 	}
-	private String message;
-	private String description; 
-	private List<EmployeeInfoBean> beans;
+	
 }

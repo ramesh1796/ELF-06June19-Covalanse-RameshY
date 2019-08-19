@@ -1,8 +1,11 @@
 package com.covalense.springboot.dto;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -17,12 +20,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "employee_otherinfo")
 //@XmlAccessorType(XmlAccessType.FIELD)
 public class EmployeeOtherInfoBean implements Serializable{
-	 
+	
+	@JsonIgnore
+	@Id
+	@Column(name="other_info_id")
+	@GeneratedValue
+	private int otherInfoId;
+	
 	 //@XmlTransient
 	@JsonIgnore
-	 @Id
-	 @OneToOne
-	 @JoinColumn(name="id")
+	// @Id
+	 @OneToOne(cascade = CascadeType.ALL)
+	 @JoinColumn(name="id",referencedColumnName = "id",unique = true)
 	 private EmployeeInfoBean infoBean;
 	 
 	 @Column(name="pan")
@@ -174,5 +183,13 @@ public class EmployeeOtherInfoBean implements Serializable{
 
 	public void setAdhaar(long adhaar) {
 		this.adhaar = adhaar;
+	}
+
+	public int getOtherInfoId() {
+		return otherInfoId;
+	}
+
+	public void setOtherInfoId(int otherInfoId) {
+		this.otherInfoId = otherInfoId;
 	}
 }
